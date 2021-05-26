@@ -1,3 +1,1 @@
-export default function (): string {
-  return '';
-}
+export { parse } from './parser';
