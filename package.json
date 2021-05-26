@@ -1,14 +1,15 @@
 {
-  "name": "",
+  "name": "widl-parser",
   "description": "",
   "author": "",
   "version": "0.0.0",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
+    "codegen": "bin/peggy.js > src/generated/generated.js",
     "build": "tsc --declaration",
     "compile": "npm run clean && npm run build",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist && rimraf generated/*",
     "lint": "eslint src test",
     "prepublishOnly": "npm run compile",
     "format": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
@@ -39,5 +40,9 @@
     "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "@wapc/widl-ast": "file:../widl-ast",
+    "peggy": "^1.1.0"
   }
 }
